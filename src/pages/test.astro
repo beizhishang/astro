@@ -1,0 +1,38 @@
+---
+---
+
+<html>
+  <body>
+    <input type="text" id="input-text" />
+    <button onclick="reply()">Send</button>
+  </body>
+  <script>
+    const replies = {
+      hello: "Hello, how can I help you?",
+      goodbye: "Goodbye!",
+      thanks: "You're welcome!",
+    };
+    function reply() {
+      const inputText = document
+        .getElementById("input-text")
+        .innerText.toLowerCase();
+      let response = "";
+
+      // Check if input text matches any keywords
+      for (let key in replies) {
+        if (inputText.includes(key)) {
+          response = replies[key];
+          break;
+        }
+      }
+
+      // If no match found, display default message
+      if (response === "") {
+        response = "Sorry, I don't understand. Please try again.";
+      }
+
+      // Display the response
+      alert(response);
+    }
+  </script>
+</html>
